@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <Container
       px="sm"
-      py={2}
+      py={1}
       m="0">
       <Label />
     </Container>

@@ -3,7 +3,7 @@
 import { AppShell, Container, useMantineColorScheme, useMantineTheme } from '@mantine/core'
 
 import Navbar from '@/app/components/navbar'
-import { Components } from '@/app/lib/const'
+import { Colors, Components } from '@/app/lib/const'
 import Header from '@/app/components/header'
 
 const AppShellComponent = ({ children }: { children: React.ReactNode }) => {
@@ -19,24 +19,26 @@ const AppShellComponent = ({ children }: { children: React.ReactNode }) => {
       header={{
         height: Components.HeaderHeight,
       }}
-      withBorder={false}>
-      <AppShell.Header>
+      withBorder={false}
+      bg={Colors.Layout}>
+      <AppShell.Header bg={Colors.Layout}>
         <Header />
       </AppShell.Header>
-      <AppShell.Navbar>
+      <AppShell.Navbar bg={Colors.Layout}>
         <Navbar />
       </AppShell.Navbar>
-      <AppShell.Main>
+      <AppShell.Main bg={Colors.Layout}>
         <Container
           style={{
             borderRadius: theme.radius.md,
             minWidth: '100%',
             maxWidth: '100%',
+            padding: 0,
+            margin: 0,
+            overflow: 'hidden',
             height: `calc(100vh - ${Components.HeaderHeight}px)`,
-            background: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-          }}
-          p="md"
-          m="0">
+            background: colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+          }}>
           {children}
         </Container>
       </AppShell.Main>

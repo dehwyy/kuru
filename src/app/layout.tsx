@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 import { NerkoOne, Jost } from '@/app/lib/fonts'
+import { AppShell } from '@/app/components/appshell'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ColorSchemeScript />
       </head>
       <body className={`${NerkoOne.variable} ${Jost.variable} antialiased`}>
-        <MantineProvider forceColorScheme="dark">{children}</MantineProvider>
+        <MantineProvider forceColorScheme="dark">
+          <AppShell>{children}</AppShell>
+        </MantineProvider>
       </body>
     </html>
   )
