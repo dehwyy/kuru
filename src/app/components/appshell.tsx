@@ -4,6 +4,7 @@ import { AppShell, Container, useMantineColorScheme, useMantineTheme } from '@ma
 
 import Navbar from '@/app/components/navbar'
 import { Components } from '@/app/lib/const'
+import Header from '@/app/components/header'
 
 const AppShellComponent = ({ children }: { children: React.ReactNode }) => {
   const theme = useMantineTheme()
@@ -20,7 +21,7 @@ const AppShellComponent = ({ children }: { children: React.ReactNode }) => {
       }}
       withBorder={false}>
       <AppShell.Header>
-        <></>
+        <Header />
       </AppShell.Header>
       <AppShell.Navbar>
         <Navbar />
