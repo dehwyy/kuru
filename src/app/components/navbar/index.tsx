@@ -1,9 +1,12 @@
 import { Container, Stack } from '@mantine/core'
 import Item from './item'
+import { useState } from 'react'
 
 const IMAGE = '/image.png'
+const DEFAULT_SELECTED_ITEM_INDEX = 1
 
 export default function Navbar() {
+  const [selectedItemIndex, setSelectedItemIndex] = useState(DEFAULT_SELECTED_ITEM_INDEX)
   const items = [{}, {}, {}, {}, {}]
 
   return (
@@ -17,9 +20,10 @@ export default function Navbar() {
           {items.map((_, i) => (
             <Item
               key={i}
+              setSelected={() => setSelectedItemIndex(i)}
               imageUrl={IMAGE}
-              placeholder="placeholder1"
-              isSelected={i === 1}
+              placeholder="Rastorguev"
+              isSelected={i === selectedItemIndex}
             />
           ))}
         </Stack>

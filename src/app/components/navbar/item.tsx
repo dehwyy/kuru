@@ -6,9 +6,10 @@ interface Props {
   imageUrl: string
   placeholder: string
   isSelected: boolean
+  setSelected: () => void
 }
 
-export default function Item({ imageUrl, placeholder, isSelected }: Props) {
+export default function Item({ imageUrl, placeholder, isSelected, setSelected }: Props) {
   const { hovered, ref } = useHover()
 
   return (
@@ -27,8 +28,9 @@ export default function Item({ imageUrl, placeholder, isSelected }: Props) {
         <HoverCard.Target>
           <Avatar
             ref={ref}
-            style={{ cursor: 'pointer' }}
-            radius={isSelected ? 'lg' : '100%'}
+            onClick={() => setSelected()}
+            className="transition-all cursor-pointer"
+            radius={hovered ? 'lg' : 'xl'}
             size={44}
             src={imageUrl}
           />
@@ -36,7 +38,7 @@ export default function Item({ imageUrl, placeholder, isSelected }: Props) {
         <HoverCard.Dropdown
           bg="dark.8"
           p={6}>
-          <p>{placeholder}</p>
+          <p className="font-base">{placeholder}</p>
         </HoverCard.Dropdown>
       </HoverCard>
     </Group>
@@ -52,16 +54,16 @@ const Bar = ({ isHover, isSelected }: { isHover: boolean; isSelected: boolean })
     const h = isSelected ? 80 : 50
     const m = (100 - h) / 2
     return [h + '%', m + '%' + ' 0']
-  }, [isHover])
+  }, [isHover, isSelected])
 
   return (
     <Box
       className="transition-all rounded-sm"
       opacity={isAnyEvent ? '100' : '0'}
-      bg="pink.2"
-      w={4}
+      bg="#fff"
+      w={10}
       pos="absolute"
-      left="-8px"
+      left="-14px"
       m={m}
       h={h}
     />
