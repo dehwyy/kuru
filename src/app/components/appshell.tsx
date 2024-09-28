@@ -32,7 +32,7 @@ const AppShellComponent = ({ children }: { children: React.ReactNode }) => {
             minWidth: '100%',
             maxWidth: '100%',
             height: `calc(100vh - ${Components.HeaderHeight}px)`,
-            backgroundColor: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            background: colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
           }}
           p="md"
           m="0">
