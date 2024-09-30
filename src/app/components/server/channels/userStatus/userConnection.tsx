@@ -1,3 +1,5 @@
+import { PhoneEndIcon } from '@/app/components/icons'
+import { Components } from '@/app/lib/const'
 import { ActionIcon, Box, Group, Text } from '@mantine/core'
 
 export default function UserConnection() {
@@ -8,9 +10,13 @@ export default function UserConnection() {
         td="underline">
         Stable
       </Text>
-      <ActionIcon
-        color="red.6"
-        radius="xl"></ActionIcon>
+      <ActionIcon variant="transparent">
+        <PhoneEndIcon
+          className="stroke-red-500"
+          w={Components.IconBaseSize}
+          h={Components.IconBaseSize}
+        />
+      </ActionIcon>
     </Group>
   )
 }

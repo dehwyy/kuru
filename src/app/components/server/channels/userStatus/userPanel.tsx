@@ -1,4 +1,5 @@
-import { Avatar, Container, Group, Text } from '@mantine/core'
+import { HeadphonesOffIcon, MicrophoneIcon, SettingsIcon } from '$/icons'
+import { Avatar, ActionIcon, Container, Group, Text, UnstyledButton } from '@mantine/core'
 
 export default function User() {
   return (
@@ -7,9 +8,32 @@ export default function User() {
       <Container m={0}>
         <Text className="font-base font-bold text-lg">dehwyy</Text>
       </Container>
-      {/* <Container>
-        <div className="w-1/2"></div>
-      </Container> */}
+      <Group
+        p={0}
+        className="ml-auto !pt-0.5"
+        gap="0px">
+        <ActionIcon variant="transparent">
+          <MicrophoneIcon
+            w={16}
+            h={16}
+            className="fill-white"
+          />
+        </ActionIcon>
+        <ActionIcon variant="transparent">
+          <HeadphonesOffIcon
+            w={20}
+            h={20}
+            className="stroke-white"
+          />
+        </ActionIcon>
+        <ActionIcon variant="transparent">
+          <SettingsIcon
+            w={20}
+            h={20}
+            className="stroke-white"
+          />
+        </ActionIcon>
+      </Group>
     </Group>
   )
 }

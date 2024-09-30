@@ -1,4 +1,5 @@
-import { Avatar, Container, Group, Text } from '@mantine/core'
+import MicrophoneOff from '@/app/components/icons/microphoneOff'
+import { ActionIcon, Avatar, Container, Group, Text } from '@mantine/core'
 
 export default function Member() {
   return (
@@ -19,7 +20,11 @@ export default function Member() {
         m="0"
         p="0"
         className="!ml-auto">
-        <Text c="red.6">Muted</Text>
+        <MicrophoneOff
+          w={20}
+          h={20}
+          className="stroke-red-500"
+        />
       </Container>
     </Group>
   )
