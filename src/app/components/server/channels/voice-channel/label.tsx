@@ -1,3 +1,5 @@
+import { VolumeIcon } from '@/app/components/icons'
+import { Components } from '@/app/lib/const'
 import { ActionIcon, Group, Text } from '@mantine/core'
 
 interface Props {
@@ -6,19 +8,17 @@ interface Props {
 
 export default function Label({ name }: Props) {
   return (
-    <Group px="sm">
+    <Group
+      px={4}
+      py={6}>
       <Group
         gap="sm"
         className="font-base">
-        <Text>{`i`}</Text>
-        <Text className="text-xl">{name}</Text>
-      </Group>
-      <Group
-        gap={2}
-        className="ml-auto">
-        {[{}, {}, {}].map(() => (
-          <ActionIcon size="sm"></ActionIcon>
-        ))}
+        <VolumeIcon
+          h={Components.IconBaseSize}
+          w={Components.IconBaseSize}
+        />
+        <Text className="text-md">{name}</Text>
       </Group>
     </Group>
   )

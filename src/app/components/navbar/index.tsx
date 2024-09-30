@@ -7,7 +7,7 @@ const DEFAULT_SELECTED_ITEM_INDEX = 1
 
 export default function Navbar() {
   const [selectedItemIndex, setSelectedItemIndex] = useState(DEFAULT_SELECTED_ITEM_INDEX)
-  const items = [{}, {}, {}, {}, {}]
+  const items = [{}]
 
   return (
     <Container
@@ -22,7 +22,7 @@ export default function Navbar() {
               key={i}
               setSelected={() => setSelectedItemIndex(i)}
               imageUrl={IMAGE}
-              placeholder="Rastorguev"
+              placeholder="dehwyy's server"
               isSelected={i === selectedItemIndex}
             />
           ))}
