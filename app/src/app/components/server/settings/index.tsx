@@ -2,16 +2,28 @@
 
 import { Components } from '@/app/lib/const'
 import { Center, Container, Group, Menu, Text } from '@mantine/core'
+import { useState } from 'react'
 
 export default function Settings() {
+  const items = [
+    { label: 'Invite people', href: '/' },
+    { label: 'Settings', href: '/' },
+    { label: 'Privacy settings', href: '/' },
+    { label: 'Delete', href: '/' },
+  ]
+
+  const [isOpened, setOpened] = useState(false)
+
   return (
     <Group
       className="font-base"
       fz={20}>
-      <Menu width={Components.ChannelsBarWidth}>
+      <Menu
+        onChange={e => setOpened(e)}
+        width={Components.ChannelsBarWidth}>
         <Menu.Target>
           <Group
-            className="cursor-pointer bg-[var(--mantine-color-dark-6)] hover:bg-[var(--mantine-color-dark-4)] transition-colors"
+            className={`${isOpened && '!bg-[var(--mantine-color-dark-4)]'} cursor-pointer bg-[var(--mantine-color-dark-6)] hover:bg-[var(--mantine-color-dark-4)] transition-colors`}
             m={0}
             p="md"
             w={Components.ChannelsBarWidth}>
@@ -23,14 +35,15 @@ export default function Settings() {
           </Group>
         </Menu.Target>
         <Menu.Dropdown
-          bg="dark.8"
+          bg="dark.7"
           w={Components.ChannelsBarWidth - 20}>
-          <Menu.Item
-            fz="sm"
-            className="hover:bg-[var(--mantine-color-dark-7)] transition-colors font-base">
-            Settings
-          </Menu.Item>
-          <Menu.Item>Delete</Menu.Item>
+          {items.map(item => (
+            <Menu.Item
+              key={item.label}
+              className="font-base hover:bg-[var(--mantine-color-dark-5)] transition-colors">
+              {item.label}
+            </Menu.Item>
+          ))}
         </Menu.Dropdown>
       </Menu>
 
